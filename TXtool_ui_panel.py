@@ -19,6 +19,7 @@ class TXTOOL_PT_main(Panel):
 #Import panel from sub category
 
 from .VertexColor import TXT_VertexColor_ui
+from .Cleanup import TXT_Cleanup_ui
 
 
 panels = [TXTOOL_PT_main]
@@ -28,10 +29,12 @@ def register():
     for pnl in panels:
         bpy.utils.register_class(pnl)
         TXT_VertexColor_ui.register()
+        TXT_Cleanup_ui.register()
 
 
 def unregister():
     for pnl in panels:
         bpy.utils.unregister_class(pnl)
         TXT_VertexColor_ui.unregister()
+        TXT_Cleanup_ui.register()
 

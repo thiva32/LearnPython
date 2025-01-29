@@ -14,18 +14,21 @@
 
 from .import TXtool_ui_panel
 from .VertexColor import TXT_VertexColor_op
-
-
-
-
+from .Cleanup import TXT_Cleanup_properties , TXT_Cleanup_op
 
 
 def register():
     TXtool_ui_panel.register()
     TXT_VertexColor_op.register()
+    TXT_Cleanup_op.register()
+    TXT_Cleanup_properties.register()
+    
+    
 
 
 def unregister():
     TXtool_ui_panel.unregister()
     TXT_VertexColor_op.unregister()
+    TXT_Cleanup_op.unregister()
+    TXT_Cleanup_properties.unregister()
     

@@ -10,26 +10,30 @@ class CLEANUP_PT_MainPanel(bpy.types.Panel):
     bl_category = 'Txtool'
 
     def draw(self, context):
+        
         layout = self.layout
         layout.label(text="Cleanup Options")
-
+    
         box = layout.box()
 
-        options = [
-            ("option_1", "Freeze Transform"),
-            ("option_2", "Check 2"),
-            ("option_3", "Check 3")
-        ]
+        row = box.row()
+        row.prop(context.scene, "option_1",text="Freeze Transform")
+        row.alignment = 'RIGHT'
+        row.operator("scene.fix",icon = 'SEQUENCE_COLOR_05')
 
-        for option, label in options:
-            row = box.row()
-            row.prop(context.scene, option, text=label)
-            row.alignment = 'RIGHT'
-            row.operator("scene.fix",text="",icon='SEQUENCE_COLOR_05').issue_option = option
+        row = box.row()
+        row.prop(context.scene, "option_2",text="Check 2")
+        row.alignment = 'RIGHT'
+        row.operator("scene.fix",icon = 'SEQUENCE_COLOR_05')
+        
+
+        row = box.row()
+        row.prop(context.scene, "option_3",text="Check 3")
+        row.alignment = 'RIGHT'
+        row.operator("scene.fix",icon = 'SEQUENCE_COLOR_05')
 
         layout.separator()
-        layout.operator("scene.cleanup_validate", text="Validate")
-
+        layout.operator("scene.cleanup_validate",text="Validate")
 
 
 panels = [CLEANUP_PT_MainPanel]
